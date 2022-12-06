@@ -2,8 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Camera } from 'expo-camera';
 import Main from "./components/Main"
 import Menu from "./components/Menu"
+import CameraScreen from './components/CameraScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +28,39 @@ export default class App extends React.Component {
             name="s2"
             component={Menu}
             options={{
-              headerShown: true
+              title: 'ZDJĘCIA Z FOLDERU DCIM',
+              headerShown: true,
+              headerTransparent: true,
+              headerStyle: {
+                backgroundColor: 'rgb(255, 120, 212)',
+              },
+              headerTintColor: 'white',
+              headerTitleStyle: {
+                "fontFamily": "sans-serif",
+                "fontSize": 22,
+                "fontWeight": "900",
+                "letterSpacing": 0,
+                "lineHeight": 40,
+              },
+            }} />
+            <Stack.Screen
+            name="s3"
+            component={CameraScreen}
+                  options={{
+              title: 'Kamera',
+              headerShown: true,
+              headerTransparent: true,
+              headerStyle: {
+                backgroundColor: 'rgb(255, 120, 212)',
+              },
+              headerTintColor: 'white',
+              headerTitleStyle: {
+                "fontFamily": "sans-serif",
+                "fontSize": 22,
+                "fontWeight": "900",
+                "letterSpacing": 0,
+                "lineHeight": 40,
+              },
             }} />
         </Stack.Navigator>
       </NavigationContainer>

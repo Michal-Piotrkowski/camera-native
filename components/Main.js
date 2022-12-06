@@ -2,6 +2,8 @@ import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, Image, Switch, FlatList } from 'react-native';
 import * as Font from "expo-font";
 import { screensEnabled } from 'react-native-screens';
+import { AutoFocus } from 'expo-camera';
+import * as MediaLibrary from 'expo-media-library';
 
 class Main extends Component {
     constructor(props) {
@@ -14,16 +16,21 @@ class Main extends Component {
             'myfont': require('../fonts/Staatliches-Regular.ttf'), // Uwaga: proszę w nazwie fonta nie używać dużych liter
         });
         this.setState({ fontloaded: true })
+        let { status } = await MediaLibrary.requestPermissionsAsync();
+        if (status !== 'granted') {
+            alert('brak uprawnień do czytania image-ów z galerii')
+        }
     }
 
     render() {
         return (this.state.fontloaded ?
             <View style={styles.container}>
+                <Text style={styles.mainText} onPress={() => this.props.navigation.navigate("s2")}>CAM</Text>
                 <Image
                     style={styles.image}
-                    source={require('../assets/boob.png')}
+                    source={require('../assets/cam.png')}
+                    onPress={() => this.props.navigation.navigate("s2")}
                 />
-                <Text style={styles.mainText} onPress={() => this.props.navigation.navigate("s2")}>CUM</Text>
                 <Text style={styles.mainText} onPress={() => this.props.navigation.navigate("s2")}>APP</Text>
                 <Text style={[styles.mainText, { fontSize: 30 }]}>by Miłosz Buba Gołąb</Text>
             </View>
@@ -45,8 +52,8 @@ const styles = StyleSheet.create({
         color: 'rgb(255, 120, 212)'
     },
     image: {
-        width: 350,
-        height: 350
+        width: '60%',
+        height: '18%'
     }
 });
 

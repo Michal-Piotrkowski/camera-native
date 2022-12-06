@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, StyleSheet, View, Image } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View, Image, Button } from 'react-native';
 
 class MyButton extends Component {
     constructor(props) {
@@ -7,16 +7,56 @@ class MyButton extends Component {
     }
 
     render() {
-        <View style={styles.container}>
-            <TouchableOpacity onPress={() => this.props.testPress()}>
-                <Text style={{
-                    textAlign: 'center',
-                    fontFamily: 'myfont',
-                    fontSize: 90
-                }}>WIWWIWIW</Text>
-            </TouchableOpacity>
-            <Text>SSSSS</Text>
-        </View>
+        if (this.props.type == "layout") {
+            return (
+                <TouchableOpacity onPress={() => this.props.testPress()}>
+                    <Text style={{
+                        textAlign: 'center',
+                        fontFamily: 'myfont',
+                        fontSize: 28,
+                        marginLeft: 20,
+                    }}>LAYOUT</Text>
+                </TouchableOpacity>
+            );
+        }
+        else if (this.props.type == "camera") {
+            return (
+                <TouchableOpacity onPress={() => this.props.testPress()}>
+                    <Text style={{
+                        textAlign: 'center',
+                        fontFamily: 'myfont',
+                        fontSize: 28,
+                        marginLeft: 20,
+                    }}>CAMERA</Text>
+                </TouchableOpacity>
+            );
+        }
+        else if (this.props.type == "delete") {
+            return (
+                <TouchableOpacity onPress={() => this.props.testPress()}>
+                    <Text style={{
+                        textAlign: 'center',
+                        fontFamily: 'myfont',
+                        fontSize: 28,
+                        marginLeft: 20,
+                    }}>DELETE</Text>
+                </TouchableOpacity>
+            );
+        }
+        else if (this.props.type == "changeCamera") {
+            return (
+                <TouchableOpacity onPress={() => this.props.testPress()}>
+                    <Image source={require('../assets/switch-camera.png')} style={styles.cameraSwitch}/>
+                </TouchableOpacity>
+            );
+        }
+        else if (this.props.type == "takePicture") {
+            return (
+                <TouchableOpacity onPress={() => this.props.testPress()}>
+                    <View style={styles.takePictureButton} title="" onPress={() => this.props.testPress()}></View>
+                </TouchableOpacity>
+            );
+        }
     }
 }
 
@@ -47,6 +87,20 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 50,
         marginBottom: 50,
+    },
+    cameraSwitch: {
+        width: 50,
+        height: 50,
+        bottom: 0,
+    },
+    takePictureButton: {
+        width: 100,
+        height: 100,
+        backgroundColor: 'gray',
+        opacity: 0.5,
+        borderWidth: 5,
+        borderRadius: 100, 
+        marginRight: 105
     }
 });
 
