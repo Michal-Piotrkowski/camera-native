@@ -57,6 +57,30 @@ class MyButton extends Component {
                 </TouchableOpacity>
             );
         }
+        else if (this.props.type == "Bshare") {
+            return (
+                <TouchableOpacity onPress={() => this.props.testPress()}>
+                    <Text style={{
+                        textAlign: 'center',
+                        fontFamily: 'myfont',
+                        fontSize: 28,
+                        marginLeft: 20,
+                    }}>SHARE</Text>
+                </TouchableOpacity>
+            );
+        }
+        else if (this.props.type == "Bdelete") {
+            return (
+                <TouchableOpacity onPress={() => this.props.testPress()}>
+                    <Text style={{
+                        textAlign: 'center',
+                        fontFamily: 'myfont',
+                        fontSize: 28,
+                        marginLeft: 20,
+                    }}>DELETE</Text>
+                </TouchableOpacity>
+            );
+        }
     }
 }
 

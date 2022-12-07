@@ -16,10 +16,6 @@ class Main extends Component {
             'myfont': require('../fonts/Staatliches-Regular.ttf'), // Uwaga: proszę w nazwie fonta nie używać dużych liter
         });
         this.setState({ fontloaded: true })
-        let { status } = await MediaLibrary.requestPermissionsAsync();
-        if (status !== 'granted') {
-            alert('brak uprawnień do czytania image-ów z galerii')
-        }
     }
 
     render() {
