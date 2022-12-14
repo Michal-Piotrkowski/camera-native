@@ -28,7 +28,7 @@ class Main extends Component {
                     onPress={() => this.props.navigation.navigate("s2")}
                 />
                 <Text style={styles.mainText} onPress={() => this.props.navigation.navigate("s2")}>APP</Text>
-                <Text style={[styles.mainText, { fontSize: 30 }]}>by Miłosz Buba Gołąb</Text>
+                <Text style={[styles.mainText, { fontSize: 30 }]}>by Michał Piotrkowski</Text>
             </View>
             : null
         );
